@@ -1,0 +1,401 @@
+/* Définition des polices personnalisées */
+
+@font-face
+{
+    font-family: 'BallparkWeiner';
+    src: url('polices/ballpark.eot');
+    src: url('polices/ballpark.eot?#iefix') format('embedded-opentype'),
+         url('polices/ballpark.woff') format('woff'),
+         url('polices/ballpark.ttf') format('truetype'),
+         url('polices/ballpark.svg#BallparkWeiner') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face
+{
+    font-family: 'Dayrom';
+    src: url('polices/dayrom.eot');
+    src: url('polices/dayrom.eot?#iefix') format('embedded-opentype'),
+         url('polices/dayrom.woff') format('woff'),
+         url('polices/dayrom.ttf') format('truetype'),
+         url('polices/dayrom.svg#Dayrom') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Eléments principaux de la page */
+
+body
+{
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+	background: linear-gradient(white, white 20%, #87CEFA ); 
+	margin: 0;
+	padding: 0;	
+}
+
+#bloc_page_utilisateur
+{
+	width: 900px;
+	min-height: 95vh;
+    margin: auto;
+}
+
+footer h1, nav a
+{
+    font-family: Dayrom, serif;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+
+
+/* Header */
+
+
+
+header
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+
+#titre_principal
+{
+    display: flex;
+    flex-direction: column;
+}
+
+#titre_centre
+{
+	text-align: center;
+}
+
+#logo
+{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+#header_connexion
+{
+	border-bottom: 3px black solid;
+	text-align: center;
+}
+.logo_connexion
+{
+	width: 200px;
+    height: 200px;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#logo img
+{
+    width: 59px;
+    height: 60px;
+}
+
+header h1
+{
+    font-family: 'BallparkWeiner', serif;
+    font-size: 2.5em;
+    font-weight: normal;
+    margin: 0 0 0 10px;
+}
+
+header h2
+{
+    font-family: Dayrom, serif;
+    font-size: 1.1em;
+    margin-top: 0px;
+    font-weight: normal;
+}
+
+
+
+/* Corps */
+
+
+
+label, textarea, input
+{
+	width: 100%;
+	display: block;
+	padding: 2px;	
+}
+
+#bouton
+{
+	margin-left: auto;
+    margin-right: auto;
+	width: auto;
+	display: block;
+	padding-left: 6px;	
+	padding-right: 6px;
+}
+
+a
+{
+	color: black;	
+}
+
+h1, h2
+{
+	text-align: center;
+}
+
+h1, section h1
+{
+    font-size: 1.5em;   
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.defense
+{
+   	display: block;
+	margin-top: 25px;
+    margin-bottom: 25px;
+    margin-left: auto;
+    margin-right: auto;
+	height: 200px;
+}
+
+.logo_partenaire
+{   
+	width: 30%;  
+	display: block;
+    margin-left: auto;
+    margin-right: auto 		
+}
+
+.logo_partenaire2
+{   
+	width: 70%;  
+	display: block;
+    margin-left: auto;
+    margin-right: auto;		
+	max-width: 500px;
+}
+
+.partenaires
+{	
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}	
+
+
+.partenaire2
+{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.partenaire3
+{
+	margin: 19px;
+	border: 3px black solid;
+	border-radius: 30px;
+	background-color: white;
+	display: block;
+	padding: 20px;
+}
+
+.partenaire4
+{
+	color: green;
+	margin: 25px;
+	border: 1px black solid;
+	border-radius: 30px;
+	background-color: white;
+	display: block;
+	padding: 10px;
+}
+
+.afficher, .afficher_button
+{
+	text-align: right;
+	color: red;
+}
+
+
+section
+{
+    display: block;
+    margin-bottom: 20px;
+}
+
+article, section
+{
+    text-align: justify;
+    margin-right: 20px;
+	font-size: 1.1em;
+}
+
+.like
+{
+	width: 45px;	
+}
+.dislike
+{
+	width: 50px;	
+}
+
+
+/* Messages d'erreur */
+
+
+.error_message
+{
+	color: red;
+}
+
+
+
+/* Footer */
+
+
+
+footer
+{
+	text-align: center;
+	background: black;
+	width: 100%;
+	position:absolute;
+}
+
+footer h1
+{   
+	font-size: 1.1em;
+	color: white;
+	
+}
+
+footer a
+{
+	color: white;
+	outline: none;
+	text-decoration: none;
+}
+
+
+/*Responsive: Tablettes*/
+
+
+@media screen and (min-width: 600px) and (max-width: 1024px)/* Styles pour cette Media Queries Tablette */
+{
+
+body
+{
+	font-size: 1.3em;
+}
+#bloc_page_utilisateur
+{
+	width: 90%;
+	
+}
+header li, footer h1
+{
+	font-size: 1.2em;
+}
+
+
+h1, section h1
+{
+    font-size: 1.4em;   
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+h3, article, section
+{
+    font-size: 1.3em;   
+}
+h3
+{
+    text-align: center;  
+}
+
+
+.defense
+{
+   	display: block;
+	margin-top: 25px;
+    margin-bottom: 25px;
+    margin-left: auto;
+    margin-right: auto;
+	height: 230px;
+}
+
+.logo_partenaire
+{
+	min-width: 400px;
+}
+
+section
+{
+    font-size: 1.3em; 
+}
+
+input, textarea, label
+{
+   font-size: 1.3em; 
+}
+}
+
+
+/*Responsive: Smartphones*/
+
+@media screen and (max-width: 600px)/* Styles pour cette Media Queries Smartphone*/
+{
+
+#bloc_page_utilisateur
+{
+	width: 85%;	
+}
+
+.partenaire3 
+{
+	padding: 15px;
+	margin-bottom: auto;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.logo_partenaire
+{
+	min-width: 160px;
+}
+
+footer h1, section h1, h2
+{
+	font-size: 1em;
+}
+section, header li
+{
+    font-size: 0.9em; 
+}
+
+label, textarea, input
+{
+	 font-size: 1em; 	
+}
+.defense
+{
+   	display: block;
+	margin-top: 25px;
+    margin-bottom: 25px;
+    margin-left: auto;
+    margin-right: auto;
+	height: 100px;
+}
+
+}
+

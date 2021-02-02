@@ -34,6 +34,8 @@ body
 	padding: 0;	
 }
 
+
+
 #bloc_page_utilisateur
 {
 	width: 900px;
@@ -41,9 +43,9 @@ body
     margin: auto;
 }
 
-footer h1, nav a
+footer h1, nav a, footer
 {
-    font-family: Dayrom, serif;
+    font-family: 'Trebuchet MS', Arial, sans-serif;
     font-weight: normal;
     text-transform: uppercase;
 }

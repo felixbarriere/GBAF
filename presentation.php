@@ -65,12 +65,12 @@
 					
 					$id = $donnees['ID'];
 					
-					$likes = $bdd->prepare('SELECT id FROM likes WHERE id_article = ?');
+					$likes = $bdd->prepare('SELECT id FROM likes WHERE id_partenaire = ?');
 					$likes->execute(array($id));
 					$likes = $likes->rowCount();
 					
 
-					$dislikes = $bdd->prepare('SELECT id FROM dislikes WHERE id_article = ?');
+					$dislikes = $bdd->prepare('SELECT id FROM dislikes WHERE id_partenaire = ?');
 					$dislikes->execute(array($id));
 					$dislikes = $dislikes->rowCount();
 				?>
@@ -99,16 +99,32 @@
 				
 					if (isset ($_POST["envoyer"]))
 					{
-						if (empty ($_POST['message']))
+						
+					$_POST['message'] = trim($_POST['message']);
+					
+					$ID_user=$_SESSION['username'];
+				
+					$verify_user = $bdd->prepare('SELECT COUNT(*) AS "nombre_commentaire" FROM commentaires WHERE ID_user=? AND id_partenaire=?');
+					$verify_user->execute(array($ID_user, $id));
+																				
+					$resultat = $verify_user->fetchAll();
+																				
+					$nombre_commentaire = $resultat[0]["nombre_commentaire"];
+																					
+						if (empty($_POST['message']))
 						{
-							echo '<p class="error_message"> Merci de remplir le champ</p>';
-						}
+								echo '<p class="error_message"> Merci de remplir le champ</p>';
+						}	
+						elseif ($nombre_commentaire != 0)
+							{
+								echo '<p class="error_message"> Vous avez déjà posté un commentaire. </p>';
+							}																		
 						else
 						{
 					
 					// Insertion du message à l'aide d'une requête préparée
 
-					$req = $bdd->prepare('INSERT INTO commentaires (ID_user, message, id_article) VALUES(?,?,?)');
+					$req = $bdd->prepare('INSERT INTO commentaires (ID_user, message, id_partenaire) VALUES(?,?,?)');
 					$req->execute(array($_SESSION['username'], htmlspecialchars($_POST['message']), $donnees['ID']));							
 								
 						echo '<div class="partenaire4">Votre message a bien été ajouté !</div>';
@@ -126,7 +142,7 @@
 				//affichage des commentaires										
 									
 				// On récupère tout le contenu de la table
-				$reponse = $bdd->prepare('SELECT ID_user, message, date_message FROM commentaires WHERE id_article = ?  ORDER BY ID DESC LIMIT 0, 15');
+				$reponse = $bdd->prepare('SELECT ID_user, message, date_message FROM commentaires WHERE id_partenaire = ?  ORDER BY ID DESC LIMIT 0, 15');
 				$reponse->execute([$id]);
 				
 				// On affiche chaque entrée une à une
